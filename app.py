@@ -165,7 +165,7 @@ AXES = {
 QUESTIONS = [
     {
         "axis": "E", "kind": "radio", "reverse": False,
-        "question": "연인에게 좋아하는 마음이 생기면?",
+        "question": "상대에게 좋아하는 마음이 생기면?",
         "options": [
             "먼저 적극적으로 표현하는 편이다",
             "비교적 자연스럽게 표현한다",

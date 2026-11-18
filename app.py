@@ -95,6 +95,38 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # =========================================================
+# 비밀번호 인증
+# =========================================================
+
+APP_PASSWORD = st.secrets.get("APP_PASSWORD", "")
+
+if not APP_PASSWORD:
+    st.error("비밀번호가 설정되지 않았습니다. 관리자에게 문의해주세요.")
+    st.stop()
+
+if "authenticated" not in st.session_state:
+    st.session_state.authenticated = False
+
+if not st.session_state.authenticated:
+
+    st.title("💜 LOVE TYPE TEST")
+    st.subheader("비밀번호를 입력해주세요.")
+
+    password = st.text_input(
+        "비밀번호",
+        type="password"
+    )
+
+    if st.button("로그인"):
+        if password == APP_PASSWORD:
+            st.session_state.authenticated = True
+            st.rerun()
+        else:
+            st.error("비밀번호가 일치하지 않습니다.")
+
+    st.stop()
+
+# =========================================================
 # 2. 성향 축 및 질문 데이터
 # 각 축 점수 50 이상이면 첫 번째 성향, 미만이면 두 번째 성향
 # =========================================================

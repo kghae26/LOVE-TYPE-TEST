@@ -447,9 +447,6 @@ if not st.session_state.submitted:
 else:
     scores = calculate_scores()
     type_code = get_type_code(scores)
-    if type_code not in TYPE_INFO:
-    st.error(f"유형 코드 {type_code}에 해당하는 결과가 등록되어 있지 않습니다.")
-    st.stop()
 
     type_name, type_description = TYPE_INFO[type_code]
 
